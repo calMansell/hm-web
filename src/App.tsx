@@ -1,35 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Box } from '@mui/material';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+function App =  () => (
+  <Router>
+    <Box sx={{backgroundColor: '#000'}}>
+      NavBar
+      <Routes>
+        <Route  path="/" exact element={<Feed />} />
+        // <Route  path="/job/:id" element={<JobDetail />} />
+        // <Route  path="/job/new" element={<NewJob />} />
+        // <Route  path="/job/:id/reviews" element={<JobReviewsList />} />
+        // <Route  path="/user/:id/profile"  exact element={<UserProfile />} />
+        // <Route  path="/user/:id/reviews"  exact element={<UserReviewsList />} />
+        // <Route  path="/my/profile" element={<UserProfile />} />
+        // <Route  path="/my/profile/edit" element={<EditableUserProfile />} />
+        // <Route  path="/my/jobs" element={<JobList />} />
+        // <Route  path="/my/messages" element={<ConversationList />} /> // use Q param to pass specific chat
+        // <Route  path="/about" element={<About />} />
+        // <Route  path="/contact" element={<Contact />} />
+      </Routes>
+    </Box>
+  </Router>
+)
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
+export default App;
