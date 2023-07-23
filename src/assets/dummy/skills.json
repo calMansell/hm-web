@@ -1,0 +1,53 @@
+[
+    {
+      "title": "Carpentry",
+      "description": "Skilled in woodworking and carpentry tasks.",
+      "status": "active"
+    },
+    {
+      "title": "Plumbing",
+      "description": "Experienced in plumbing installations and repairs.",
+      "status": "active"
+    },
+    {
+      "title": "Electrical Work",
+      "description": "Knowledgeable in electrical installations and repairs.",
+      "status": "active"
+    },
+    {
+      "title": "Painting",
+      "description": "Proficient in interior and exterior painting.",
+      "status": "active"
+    },
+    {
+      "title": "Landscaping",
+      "description": "Skilled in maintaining and beautifying outdoor spaces.",
+      "status": "active"
+    },
+    {
+      "title": "Masonry",
+      "description": "Experienced in bricklaying and stonework.",
+      "status": "active"
+    },
+    {
+      "title": "Roofing",
+      "description": "Knowledgeable in roofing installations and repairs.",
+      "status": "active"
+    },
+    {
+      "title": "Welding",
+      "description": "Proficient in metal welding and fabrication.",
+      "status": "active"
+    },
+    {
+      "title": "Tiling",
+      "description": "Skilled in tile installation and grouting.",
+      "status": "active"
+    },
+    {
+      "title": "HVAC Technician",
+      "description": "Experienced in heating, ventilation, and air conditioning systems.",
+      "status": "active"
+    }
+  ]
+  

@@ -1,0 +1,53 @@
+[
+    {
+      "reviewer": 2,
+      "reviewAbout": 1,
+      "job": 1,
+      "rating": 4,
+      "title": "Great Job!",
+      "comment": "John did an excellent job renovating my house.",
+      "status": "active",
+      "createdAt": "2023-07-15T12:10:00Z"
+    },
+    {
+      "reviewer": 1,
+      "reviewAbout": 3,
+      "job": 3,
+      "rating": 5,
+      "title": "Highly Recommended",
+      "comment": "Michael is a skilled roofer. The repairs were top-notch.",
+      "status": "active",
+      "createdAt": "2023-07-14T08:50:00Z"
+    },
+    {
+      "reviewer": 4,
+      "reviewAbout": 2,
+      "job": 2,
+      "rating": 3,
+      "title": "Average Landscaping",
+      "comment": "The landscaping work was satisfactory but could have been better.",
+      "status": "active",
+      "createdAt": "2023-07-13T16:35:00Z"
+    },
+    {
+      "reviewer": 3,
+      "reviewAbout": 4,
+      "job": 4,
+      "rating": 5,
+      "title": "Excellent Plumbing",
+      "comment": "The plumbing repairs were done perfectly. No issues at all.",
+      "status": "active",
+      "createdAt": "2023-07-12T09:30:00Z"
+    },
+    {
+      "reviewer": 5,
+      "reviewAbout": 3,
+      "job": 6,
+      "rating": 4,
+      "title": "Good Electrical Work",
+      "comment": "The electrical installations were handled well. Satisfied with the job.",
+      "status": "active",
+      "createdAt": "2023-07-11T14:55:00Z"
+    }
+  ]
+  

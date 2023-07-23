@@ -1,0 +1,48 @@
+[
+    {
+      "reviewer": 1,
+      "reviewAbout": 2,
+      "rating": 5,
+      "title": "Highly Skilled Carpenter",
+      "comment": "Bob is an excellent carpenter. He did a fantastic job.",
+      "status": "active",
+      "createdAt": "2023-07-20T10:15:00Z"
+    },
+    {
+      "reviewer": 3,
+      "reviewAbout": 1,
+      "rating": 4,
+      "title": "Great Landscaping Work",
+      "comment": "Alice did a wonderful job landscaping my garden.",
+      "status": "active",
+      "createdAt": "2023-07-19T15:30:00Z"
+    },
+    {
+      "reviewer": 4,
+      "reviewAbout": 2,
+      "rating": 3,
+      "title": "Average Plumber",
+      "comment": "Bob's plumbing work was okay but could have been better.",
+      "status": "active",
+      "createdAt": "2023-07-18T09:45:00Z"
+    },
+    {
+      "reviewer": 5,
+      "reviewAbout": 1,
+      "rating": 5,
+      "title": "Exceptional Tiler",
+      "comment": "Alice is a highly skilled tiler. The bathroom looks amazing.",
+      "status": "active",
+      "createdAt": "2023-07-17T14:00:00Z"
+    },
+    {
+      "reviewer": 2,
+      "reviewAbout": 3,
+      "rating": 4,
+      "title": "Good Electrical Work",
+      "comment": "Carol did a great job with the electrical installation.",
+      "status": "active",
+      "createdAt": "2023-07-16T11:20:00Z"
+    }
+  ]
+  
