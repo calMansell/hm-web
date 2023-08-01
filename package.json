@@ -17,7 +17,9 @@
     "@types/react-router-dom": "^5.3.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.14.2"
+    "react-multi-carousel": "^2.8.4",
+    "react-router-dom": "^6.14.2",
+    "typescript-react-carousel": "^0.1.2"
   },
   "devDependencies": {
     "@types/prettier": "^2.7.3",

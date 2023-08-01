@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Box } from '@mui/material';
 import React from 'react';
 import { HomeFeed, Navbar } from './components';
+import JobDetail from './components/JobDetail';
 
 function App() {
   return (
@@ -10,11 +11,11 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomeFeed />} />
-          {/* <Route path="/job/:id" element={<JobDetail />} />
-        <Route path="/job/new" element={<NewJobPage />} />
-        <Route path="/job/seach" element={<SearchFeed />} />
-        <Route path="/job/:id/reviews" element={<JobReviewsPage />} />
-        <Route path="/job/:id/reviews/create" element={<JobReviewsCreatePage />} />
+          <Route path="/jobs/:id" element={<JobDetail />} />
+          {/*   <Route path="/jobs/new" element={<NewJobPage />} />
+        <Route path="/jobs/seach" element={<SearchFeed />} />
+        <Route path="/jobs/:id/reviews" element={<JobReviewsPage />} />
+        <Route path="/jobs/:id/reviews/create" element={<JobReviewsCreatePage />} />
         <Route path="/user/:id/profile" exact element={<UserProfile />} />
         <Route path="/user/:id/reviews" exact element={<UserReviewsPage />} />
         <Route path="/user/:id/reviews/create" exact element={<UserReviewsCreatePage />} />

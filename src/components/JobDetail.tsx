@@ -1,8 +1,9 @@
 import React from 'react';
+import JobDetailPanel from './JobDetailPanel';
 
 function JobDetail() {
   return (
-    <div>JobDetail</div>
+    <JobDetailPanel />
   );
 }
 
