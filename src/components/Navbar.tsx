@@ -13,7 +13,7 @@ function Navbar() {
       alignItems="centre"
       p={2}
       sx={{
-        position: 'sticky', background: '#000', top: 0, justifyContent: 'space-between',
+        position: 'sticky', background: '#000', top: 0, justifyContent: 'space-between', zIndex: 1000,
       }}
     >
       <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>

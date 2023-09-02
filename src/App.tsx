@@ -7,12 +7,13 @@ import JobDetail from './components/JobDetail';
 function App() {
   return (
     <Router>
-      <Box sx={{ backgroundColor: '#000' }}>
+      <Box>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<HomeFeed />} />
-          <Route path="/jobs/:id" element={<JobDetail />} />
-          {/*   <Route path="/jobs/new" element={<NewJobPage />} />
+        <Box className="main-container">
+          <Routes>
+            <Route path="/" element={<HomeFeed />} />
+            <Route path="/jobs/:id" element={<JobDetail />} />
+            {/*   <Route path="/jobs/new" element={<NewJobPage />} />
         <Route path="/jobs/seach" element={<SearchFeed />} />
         <Route path="/jobs/:id/reviews" element={<JobReviewsPage />} />
         <Route path="/jobs/:id/reviews/create" element={<JobReviewsCreatePage />} />
@@ -27,7 +28,8 @@ function App() {
         <Route path="/my/reviews" element={<MyUserReviewsPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} /> */}
-        </Routes>
+          </Routes>
+        </Box>
       </Box>
     </Router>
   );
