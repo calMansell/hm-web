@@ -8,18 +8,6 @@ body {
   background-repeat: repeat;
 }
 
-.main-container {
-  margin: 0 20%;
-  height: 100%;
-  
-}
-
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-  .main-container {
-    margin: 0 2%; /* Adjust margin as a percentage for smaller screens */
-  }
-}
 
 a {
   text-decoration: none;

@@ -1,0 +1,34 @@
+.conversations-page {
+    margin: 0 10%;
+    height: 100%;
+}
+
+#new-chat-plus-button {
+    color: #6bc964 !important;
+    background-color: white !important;
+    font-weight:  bold !important;
+    border: 2px solid #6bc964 !important;
+}
+
+.ce-chat-card {
+    margin-top: 20px !important;
+    /* background-color: #225c1f !important; */
+    /* opacity: 20% !important; */
+}
+.ce-chat-title-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0d2e0b !important;
+    font-family: Avenir;
+}
+
+.ce-chat-subtitle-text {
+    font-size: 1rem;
+    color: #0d2e0b !important;
+    font-family: Avenir;    
+}
+
+.ce-message-bubble {
+    font-family: Helvetica;
+    /* font-weight:  bold; */
+} 

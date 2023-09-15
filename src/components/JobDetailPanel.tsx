@@ -1,6 +1,6 @@
 import { CheckCircle } from '@mui/icons-material';
 import {
-  Box, Typography, Stack, Divider, Button,
+  Box, Typography, Divider, Button,
 } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 
@@ -54,7 +54,7 @@ function JobDetailPanel() {
       <Divider />
 
       <Box sx={{ padding: '15px' }}>
-        <Button variant="contained" color="primary" sx={{ marginRight: '10px' }} onClick={}>
+        <Button variant="contained" color="primary" sx={{ marginRight: '10px' }}>
           <Typography variant="body2" fontWeight="bold">
             Message
           </Typography>
