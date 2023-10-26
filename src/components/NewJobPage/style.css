@@ -1,0 +1,13 @@
+.new-job-page {
+    margin: 0 20%;
+    height: 100%;
+    
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .new-job-page {
+      margin: 0 2%; 
+    }
+  }
+  

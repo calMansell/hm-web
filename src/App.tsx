@@ -5,7 +5,7 @@ import { HomeFeed, Navbar } from './components';
 import JobDetailPage from './components/JobDetailPage/JobDetail';
 import ConversationsPage from './components/ConversationPage/ConversationsPage';
 import UserProfile from './components/UserProfile/UserProfile';
-import NewJobPage from './components/NewJobPage';
+import NewJobPage from './components/NewJobPage/NewJobPage';
 
 function App() {
   return (

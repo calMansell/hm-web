@@ -1,18 +1,19 @@
-import { Box } from '@mui/material';
+import { Box, IconButton } from '@mui/material';
 import React from 'react';
 import Carousel from 'react-multi-carousel';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 import 'react-multi-carousel/lib/styles.css';
 
 import './style.css';
 
 interface ImageCarouselProps {
-  job: {
-    images: string[];
-  };
+  images: string[];
+  handleRemoveImage?: (index: number) => void;
 }
 
-export default function ImageCarousel({ job }: ImageCarouselProps) {
+// eslint-disable-next-line max-len
+export default function ImageCarousel({ images, handleRemoveImage }: ImageCarouselProps) {
   const responsive = {
     // superLargeDesktop: {
     //   // the naming can be any, depends on you.
@@ -52,9 +53,21 @@ export default function ImageCarousel({ job }: ImageCarouselProps) {
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"
       >
-        {job.images.map((img, idx) => (
+        {images.map((img, idx) => (
           // eslint-disable-next-line react/no-array-index-key
           <Box key={idx} sx={{ width: '100%' }}>
+            { handleRemoveImage && (
+            <IconButton
+              className="remove-button"
+              onClick={() => handleRemoveImage(idx)}
+              size="small"
+              color="secondary"
+              style={{ position: 'absolute', top: 2, right: 3 }}
+            >
+              <DeleteIcon />
+            </IconButton>
+            )}
+
             <img src={img} alt="defe" style={{ width: '100%', objectFit: 'contain' }} />
           </Box>
         ))}
@@ -62,3 +75,7 @@ export default function ImageCarousel({ job }: ImageCarouselProps) {
     </Box>
   );
 }
+
+ImageCarousel.defaultProps = {
+  handleRemoveImage: undefined,
+};
