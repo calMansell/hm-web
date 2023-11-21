@@ -1,0 +1,60 @@
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #3E8D4D;
+    border-radius: 20px;
+    width: 10px;
+    margin-right: 5px; /* Add any desired margin */
+}
+
+/* Style for the search input field */
+.search-input input {
+    flex: 5 0;
+    border: none;
+    width: 100%;
+    background: transparent;
+    outline: none;
+    font-size: 1em;
+    
+}
+    
+
+.divider {
+    width: 2px;
+    background-color: #3E8D4D;
+    height: 100%; /* Adjust the height to your preference */
+    /* margin: 0 10px; */
+}
+
+.suggestion {
+    padding: 5px;
+    cursor: pointer;
+    background-color: white; /* Set the background color as needed */
+}
+  
+
+.autocomplete-container {
+    position: absolute;
+    width: 100%;
+    background-color: white; /* Set the background color as needed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+}
+
+.search-button {
+padding: 10px;
+/* display: flex; */
+align-items: center;
+justify-content: center;
+
+    button {
+        background: none;
+        border: none;
+        font-size: 1.5em;
+        color: #3E8D4D;
+        cursor: pointer;
+    }
+}
+

@@ -7,8 +7,19 @@ import Loader from './Loader';
 function JobItems({ jobs, direction }: { jobs: Job[], direction: 'row' | 'column' | undefined }) {
   if (!jobs?.length) return <Loader />;
   return (
-    // eslint-disable-next-line react/no-array-index-key
-    <Stack direction={direction || 'row'} flexWrap="wrap" justifyContent="start" gap={2}>{jobs.map((job, idx) => (<Box key={idx}><JobCard job={job} /></Box>))}</Stack>
+  // eslint-disable-next-line react/no-array-index-key
+    <Stack direction={direction || 'row'} flexWrap="wrap" justifyContent="start" gap={2}>
+      {jobs.map((job) => (
+        <Box
+          key={job.id}
+          sx={{
+            height: '50vh', width: '45%', overflow: 'hidden', textOverflow: 'ellipsis',
+          }}
+        >
+          <JobCard job={job} />
+        </Box>
+      ))}
+    </Stack>
   );
 }
 

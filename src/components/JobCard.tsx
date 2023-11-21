@@ -11,7 +11,10 @@ function JobCard({ job }: { job: Job }) {
 
   const { title, description, images } = job;
   return (
-    <Card sx={{ width: '100%', boxShadow: 'none', borderRadius: 0 }}>
+    <Card sx={{
+      width: '100%', height: '50vh', boxShadow: 'none', borderRadius: 0,
+    }}
+    >
       <Link to={`/jobs/${job.id}`}>
         <CardMedia
           image={images.length > 0 ? images[0] : demoImageUrl}
@@ -25,7 +28,14 @@ function JobCard({ job }: { job: Job }) {
             {title}
           </Typography>
         </Link>
-        <Typography variant="body1">{description}</Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', paddingBottom: '20px',
+          }}
+        >
+          {description}
+        </Typography>
         <Typography variant="body2">
           Region:
           {' '}

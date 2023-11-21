@@ -1,0 +1,13 @@
+.home-feed-page {
+    margin: 0 10%;
+    height: 100%;
+    
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .home-feed-page {
+      margin: 0 2%; 
+    }
+  }
+  
