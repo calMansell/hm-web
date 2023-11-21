@@ -7,6 +7,7 @@ import ConversationsPage from './components/ConversationPage/ConversationsPage';
 import UserProfile from './components/UserProfile/UserProfile';
 import NewJobPage from './components/NewJobPage/NewJobPage';
 import SearchFeed from './components/SearchFeed';
+import MyUserReviewsPage from './components/MyUserReviewsPage';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
             <Route path="/my/profile" element={<UserProfile />} />
             <Route path="/jobs/new" element={<NewJobPage />} />
             <Route path="/jobs/seach" element={<SearchFeed />} />
+
+            <Route path="/my/reviews" element={<MyUserReviewsPage />} />
+
             {/* //
         // <Route path="/jobs/:id/reviews" element={<JobReviewsPage />} />
         // <Route path="/jobs/:id/reviews/create" element={<JobReviewsCreatePage />} />
@@ -30,7 +34,6 @@ function App() {
         // <Route path="/my/profile/edit" element={<EditableUserProfile />} />
         // <Route path="/my/jobs" element={<MyJobsPage />} />
         // <Route path="/my/settings" element={<Settings />} />
-        // <Route path="/my/reviews" element={<MyUserReviewsPage />} />
         // <Route path="/about" element={<About />} />
         // <Route path="/contact" element={<Contact />} />  */}
           </Routes>

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import Chip from '@mui/material/Chip';
-import { Button } from '@mui/material';
+import SkillChip from './SkillChip/SkillChip';
 
-function SkillInput() {
+export default function SkillInput() {
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState<string>('');
 
@@ -13,13 +13,7 @@ function SkillInput() {
 
   const handleInputChange = (event: React.ChangeEvent<unknown>, newValue: string) => {
     setInputValue(newValue);
-  };
-
-  const handleAddSkill = () => {
-    if (inputValue.trim() !== '' && !selectedSkills.includes(inputValue)) {
-      setSelectedSkills([...selectedSkills, inputValue]);
-      setInputValue('');
-    }
+    console.log(selectedSkills);
   };
 
   const handleDeleteSkill = (skillToDelete: string) => {
@@ -32,8 +26,9 @@ function SkillInput() {
         multiple
         id="skills-input"
         options={skillsList}
-        value={selectedSkills}
-        onChange={(_, newValue) => setSelectedSkills(newValue)}
+        value={selectedSkills.length > 0 ? [selectedSkills[selectedSkills.length - 1]] : []}
+        // eslint-disable-next-line max-len
+        onChange={(_, newValue) => setSelectedSkills([...new Set([...selectedSkills, ...newValue])])}
         inputValue={inputValue}
         onInputChange={handleInputChange}
         renderInput={(params) => (
@@ -46,20 +41,15 @@ function SkillInput() {
           />
         )}
       />
-      <Button onClick={handleAddSkill}>Add Skill</Button>
+      {/* <Button onClick={handleAddSkill}>Add Skill</Button> */}
       <div>
-        {selectedSkills.map((skill, index) => (
-          <Chip
-            // eslint-disable-next-line react/no-array-index-key
-            key={index}
-            label={skill}
-            onDelete={() => handleDeleteSkill(skill)}
-            style={{ margin: '4px' }}
+        {selectedSkills.map((skill) => (
+          <SkillChip
+            skill={skill}
+            handleDeleteSkill={handleDeleteSkill}
           />
         ))}
       </div>
     </div>
   );
 }
-
-export default SkillInput;

@@ -12,6 +12,7 @@ import Loader from './Loader';
 import jobs from '../assets/dummy/jobs.json';
 // import ImageCarousel from './ImageCarousel';
 import ImageCarousel from './ImageCarousel/ImageCarousel';
+import SkillChip from './SkillChip/SkillChip';
 
 function JobDetailPanel() {
   const { id } = useParams();
@@ -70,13 +71,11 @@ function JobDetailPanel() {
         <Typography variant="body2" fontWeight="bold">
           Skills Required:
         </Typography>
-        { job.skillsRequiredForJob.map((skill, index) => (
+        { job.skillsRequiredForJob.map((skill) => (
           // eslint-disable-next-line react/no-array-index-key
-          <Typography key={index} variant="body2" sx={{ opacity: 0.7, padding: '2px' }}>
-            {/* <BuildIcon /> */}
-            {' '}
-            {skill.title}
-          </Typography>
+          <SkillChip
+            skill={skill.title}
+          />
         ))}
       </Box>
       <Divider />

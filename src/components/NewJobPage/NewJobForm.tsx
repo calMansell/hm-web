@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import { TextField, Button, Grid } from '@mui/material';
+import {
+  TextField, Button, Grid, Typography,
+} from '@mui/material';
+import SkillInput from '../SkillInput';
+
+import './style.css';
 
 interface Coords {
   latitude: number | null;
@@ -40,13 +45,13 @@ function NewJobForm({ onNext }: { onNext: () => void }) {
   };
 
   return (
-    <form>
+    <form className="wrapper">
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <TextField
             label="Name"
             variant="outlined"
-            fullWidth
+            // fullWidth
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -54,8 +59,10 @@ function NewJobForm({ onNext }: { onNext: () => void }) {
         <Grid item xs={12}>
           <TextField
             label="Description"
-            variant="outlined"
-            fullWidth
+            // variant="outlined"
+            // fullWidth
+            multiline
+            rows={4}
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
@@ -64,7 +71,7 @@ function NewJobForm({ onNext }: { onNext: () => void }) {
           <TextField
             label="Region"
             variant="outlined"
-            fullWidth
+            // fullWidth
             value={region}
             onChange={(e) => setRegion(e.target.value)}
           />
@@ -72,8 +79,8 @@ function NewJobForm({ onNext }: { onNext: () => void }) {
         <Grid item xs={12}>
           <TextField
             label="Sub Region"
-            variant="outlined"
-            fullWidth
+            // variant="outlined"
+            // fullWidth
             value={subRegion}
             onChange={(e) => setSubRegion(e.target.value)}
           />
@@ -85,6 +92,14 @@ function NewJobForm({ onNext }: { onNext: () => void }) {
         </Grid>
         <Grid item xs={12}>
           {/* <p>{currentLocation}</p> */}
+        </Grid>
+        <Grid item xs={12}>
+          <Typography variant="h6" align="left">
+            Skills:
+
+          </Typography>
+          <SkillInput />
+
         </Grid>
       </Grid>
       <button type="button" onClick={onNext}>Next</button>

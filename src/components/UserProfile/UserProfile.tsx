@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Avatar, Typography, Button, TextField, Paper, Box,
+  Avatar, Typography, Paper, Box,
 } from '@mui/material';
 
 import './style.css';
@@ -52,17 +52,6 @@ function UserProfile() {
       {/* Section 4: Skills */}
       <Paper className="skills-section section">
         <SkillInput />
-        {/* <div>
-          <Typography variant="h6">Skills</Typography>
-          {userInfo.skills.map((skill, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <Typography key={index} variant="body1">
-              -
-              {' '}
-              {skill}
-            </Typography>
-          ))}
-        </div> */}
       </Paper>
     </Box>
   );
