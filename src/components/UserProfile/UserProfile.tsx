@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   Avatar, Typography, Paper, Box,
 } from '@mui/material';
+import Edit from '@mui/icons-material/Edit';
 
 import './style.css';
 import EditableTextField from '../EditableTextField';
 import SkillInput from '../SkillInput';
 
 function UserProfile() {
+  const [profilePic, setProfilePic] = useState('https://upload.wikimedia.org/wikipedia/en/c/c5/Bob_the_builder.jpg');
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [userInfo, setUserInfo] = useState({
     name: 'John Doe',
     email: 'john@example.com',
@@ -25,11 +28,35 @@ function UserProfile() {
     },
   });
 
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfilePic(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleClick = () => {
+    fileInputRef.current?.click();
+  };
+
   return (
     <Box className="user-profile" sx={{ height: '85vh', margin: '20px' }}>
       {/* Section 1: Image, Headline, Location */}
       <Paper className="profile-section section">
-        <Avatar alt="User Avatar" src="https://upload.wikimedia.org/wikipedia/en/c/c5/Bob_the_builder.jpg" sx={{ width: 'auto', height: 150 }} />
+        <Box sx={{ position: 'relative', cursor: 'pointer' }} onClick={handleClick}>
+          <Avatar alt="User Avatar" src={profilePic} imgProps={{ style: { objectFit: 'contain' } }} sx={{ width: 150, height: 150, border: '1px solid green' }} />
+          <Box sx={{
+            position: 'absolute', top: '10%', left: '10%',
+          }}
+          >
+            <Edit color="action" sx={{ fill: '#125B2F' }} />
+          </Box>
+        </Box>
+        <input type="file" ref={fileInputRef} style={{ display: 'none' }} onChange={handleFileUpload} />
         <Typography variant="h5">{userInfo.name}</Typography>
         <Typography variant="subtitle1">Experienced Joiner</Typography>
         <Typography variant="subtitle1">{userInfo.location}</Typography>

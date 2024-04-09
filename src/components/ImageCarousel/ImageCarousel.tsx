@@ -36,7 +36,7 @@ export default function ImageCarousel({ images, handleRemoveImage }: ImageCarous
   return (
 
     <Box sx={{
-      width: '80%', marginBottom: '20px',
+      width: '80%', marginBottom: '20px', height: '500px',
     }}
     >
       <Carousel
@@ -68,7 +68,13 @@ export default function ImageCarousel({ images, handleRemoveImage }: ImageCarous
             </IconButton>
             )}
 
-            <img src={img} alt="defe" style={{ width: '100%', objectFit: 'contain' }} />
+            <img
+              src={img}
+              alt="defe"
+              style={{
+                width: '100%', objectFit: 'contain', height: '100%',
+              }}
+            />
           </Box>
         ))}
       </Carousel>

@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
+import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import ImageCarousel from '../ImageCarousel/ImageCarousel';
 
 interface Image {
@@ -43,10 +44,24 @@ function ImageUploadPage({ onBack }: { onBack: () => void }) {
     setSelectedImages(updatedImages);
   };
 
-  const handleImageUpload = () => {
-    // Implement logic to upload selectedImages to a server or storage.
-    // You can use libraries like Axios to make API requests.
-    // Reset selectedImages state after successful upload.
+  const handleImageUpload = async () => {
+    /// Set the parameters.
+    const client = new S3Client({});
+    selectedImages.forEach((image) => {
+      const command = new PutObjectCommand({
+        Bucket: 'test-bucket', // TODO: add bucket name
+        Key: 'hello-s3.txt', // TODO: add post ID to key
+        Body: image.file,
+      });
+
+      try {
+        const response = client.send(command);
+        console.log(response);
+      } catch (err) {
+        console.error(err);
+      }
+    });
+
     setSelectedImages([]);
   };
 

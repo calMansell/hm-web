@@ -1,13 +1,11 @@
 .job-detail-page {
-    margin: 0 20%;
-    height: 100%;
-    
+  margin: 0 5%;
+  height: 100%;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .job-detail-page {
+    margin: 0 2%; /* Adjusted margin for smaller screens */
   }
-  
-  /* Media query for smaller screens */
-  @media (max-width: 768px) {
-    .job-detail-page {
-      margin: 0 2%; 
-    }
-  }
-  
+}

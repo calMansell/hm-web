@@ -2,6 +2,7 @@ import { CheckCircle } from '@mui/icons-material';
 import {
   Box, Typography, Divider, Button,
 } from '@mui/material';
+import SendIcon from '@mui/icons-material/Send';
 import React, { useEffect, useState } from 'react';
 
 import { useParams, Link } from 'react-router-dom';
@@ -16,9 +17,7 @@ import SkillChip from './SkillChip/SkillChip';
 
 function JobDetailPanel() {
   const { id } = useParams();
-
   const [job, setJob] = useState<Job | undefined>(jobs.find((item) => item.id === id));
-  // const [job, setJob] = useState<Job>();
 
   useEffect(() => {
     const fetchJob = jobs.find((item) => item.id === id);
@@ -28,70 +27,46 @@ function JobDetailPanel() {
   if (!job) return <Loader />;
 
   return (
-
-    <Box sx={{
-      width: '100%', height: '100%', position: 'sticky', top: '86px', backgroundColor: 'white', p: 2,
-    }}
-    >
-      <Typography variant="h4" align="left">
-        {job.title}
-      </Typography>
-      <Typography variant="h5" color="grey" align="left" p={1}>
-        {job.region}
-        {' '}
-        -
-        {' '}
-        {job.subRegion}
-      </Typography>
-      <Box sx={{
-        width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center',
-      }}
-      >
+    <Box className="job-detail-page" sx={{ backgroundColor: 'white', paddingTop: 3, paddingLeft: '30px' }}>
+      <Box sx={{ paddingLeft: '30px' }}>
+        <Typography variant="h4" align="left">
+          {job.title}
+        </Typography>
+        <Typography variant="h5" color="grey" align="left" p={1} paddingBottom={3}>
+          {job.region}
+          {' '}
+          -
+          {' '}
+          {job.subRegion}
+        </Typography>
+      </Box>
+      <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
         <ImageCarousel images={job.images} />
       </Box>
       <Divider />
-
-      <Typography variant="body1" sx={{ padding: '15px' }}>{job?.description}</Typography>
+      <Typography variant="body1" sx={{ padding: '30px 25px 25px 25px', lineHeight: 2 }}>{job.description}</Typography>
       <Divider />
-
       <Box sx={{ padding: '15px' }}>
-        <Button variant="contained" color="primary" sx={{ marginRight: '10px' }}>
-          <Typography variant="body2" fontWeight="bold">
-            Message
-          </Typography>
+        <Button variant="contained" color="primary" startIcon={<SendIcon />}>
+          <Typography variant="body1" fontWeight="bold">Message</Typography>
         </Button>
       </Box>
-
       <Divider />
-
-      <Box sx={{
-        display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '15px',
-      }}
-      >
-        <Typography variant="body2" fontWeight="bold">
-          Skills Required:
-        </Typography>
-        { job.skillsRequiredForJob.map((skill) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <SkillChip
-            skill={skill.title}
-          />
+      <Box sx={{ padding: '15px' }}>
+        <Typography variant="body2" fontWeight="bold">Skills Required:</Typography>
+        {job.skillsRequiredForJob.map((skill) => (
+          <SkillChip skill={skill.title} />
         ))}
       </Box>
       <Divider />
       <Box sx={{ padding: '15px' }}>
-        <Typography variant="body2">
-          {/* TODO: add date */}
-          Posted: 2023-01-01
-        </Typography>
+        <Typography variant="body2">Posted: 2023-01-01</Typography>
         <Typography variant="body2">
           Job ID:
-          {' '}
-          { job.id }
+          {job.id}
         </Typography>
         <Typography variant="body2">
           Views:
-          {' '}
           {job.views}
         </Typography>
         <Link to={`/user/${job.poster}`}>
@@ -103,9 +78,7 @@ function JobDetailPanel() {
           </Typography>
         </Link>
       </Box>
-
     </Box>
-
   );
 }
 

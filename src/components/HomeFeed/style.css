@@ -1,13 +1,28 @@
 .home-feed-page {
-    margin: 0 10%;
-    height: 100%;
-    
+  margin: 0 10%;
+  height: 100%;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .home-feed-page {
+    margin: 2% 5%; /* Adjusted margin for smaller screens */
   }
   
-  /* Media query for smaller screens */
-  @media (max-width: 768px) {
-    .home-feed-page {
-      margin: 0 2%; 
-    }
+   /* Adjust font size and line height */
+   .home-feed-page .MuiTypography-root {
+    font-size: 16px; /* Decrease font size */
+    line-height: 1.5; /* Increase line height */
   }
-  
+
+
+  /* Switch navigation to hamburger menu */
+  /* Example: If you have a navigation component with class .navigation */
+  .navigation {
+    display: none; /* Hide regular navigation */
+  }
+
+  .navigation-toggle {
+    display: block; /* Show hamburger menu icon */
+  }
+}

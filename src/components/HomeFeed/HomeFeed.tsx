@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-import { Box, Stack, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 
 import jobs from '../../assets/dummy/jobs.json';
 import JobItems from '../JobItems';
-import Sidebar from '../Sidebar';
 
 import './style.css';
 
