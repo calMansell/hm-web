@@ -57,15 +57,18 @@ export default function ImageCarousel({ images, handleRemoveImage }: ImageCarous
           // eslint-disable-next-line react/no-array-index-key
           <Box key={idx} sx={{ width: '100%' }}>
             { handleRemoveImage && (
-            <IconButton
-              className="remove-button"
-              onClick={() => handleRemoveImage(idx)}
-              size="small"
-              color="secondary"
-              style={{ position: 'absolute', top: 2, right: 3 }}
-            >
-              <DeleteIcon />
-            </IconButton>
+              <IconButton
+                className="remove-button"
+                onClick={() => handleRemoveImage(idx)}
+                size="small"
+                color="secondary"
+                style={{
+                  position: 'absolute', top: 5, right: 5, zIndex: 999,
+                }}
+              >
+                <DeleteIcon />
+              </IconButton>
+
             )}
 
             <img

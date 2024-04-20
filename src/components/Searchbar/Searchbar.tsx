@@ -20,6 +20,7 @@ function Searchbar() {
       sx={{
         borderRadius: 20,
         border: '1px solid #3E8D4D',
+        margin: '10px px',
         pl: 2,
         boxShadow: 'none',
         display: 'flex',

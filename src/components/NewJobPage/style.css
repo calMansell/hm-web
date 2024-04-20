@@ -1,25 +1,10 @@
 .new-job-page {
-    margin: 0 20%;
-    height: 100%;
-    
-  }
+  margin: 0 5%;
+}
 
-.wrapper {
-    display: flex;
-    width: 150px;
-    /* margin: 0 20%; */
-    /* flex-direction: column;
-    justify-content: center;
-    align-items: center; */
-    height: 100%;
-    /* background-color: blueviolet; */
-    overflow: 'hidden'
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .new-job-page {
+    margin: 0 2%; 
   }
-  
-  /* Media query for smaller screens */
-  @media (max-width: 768px) {
-    .new-job-page {
-      margin: 0 2%; 
-    }
-  }
-  
+}

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './style.css';
 import { Box } from '@mui/material';
-import NewJobForm from './NewJobForm';
-import ImageUploadPage from './ImageUploadPage';
+import NewJobForm from './NewJobForm/NewJobForm';
+import ImageUploadPage from './ImageUploadPage/ImageUploadPage';
 
 function NewJobPage() {
   const [currentStage, setCurrentStage] = useState<'location' | 'image'>('location');
@@ -11,7 +11,7 @@ function NewJobPage() {
     <Box
       className="new-job-page"
       sx={{
-        width: '100%', height: '100vh', position: 'sticky', top: '86px', backgroundColor: 'white', p: 2,
+        height: '100vh', position: 'sticky', top: '86px', backgroundColor: 'white', p: 2,
       }}
     >
       {currentStage === 'location' && (

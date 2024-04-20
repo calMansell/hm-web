@@ -31,7 +31,7 @@ function JobCard({ job }: { job: Job }) {
         <Typography
           variant="body1"
           sx={{
-            overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', paddingBottom: '20px',
+            overflow: 'hidden', paddingBottom: '2px', height: '50px',
           }}
         >
           {description}
