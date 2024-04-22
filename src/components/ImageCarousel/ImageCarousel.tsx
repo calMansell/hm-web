@@ -1,11 +1,10 @@
-import { Box, IconButton } from '@mui/material';
-import React from 'react';
-import Carousel from 'react-multi-carousel';
-import DeleteIcon from '@mui/icons-material/Delete';
-
-import 'react-multi-carousel/lib/styles.css';
+/* eslint-disable react/button-has-type */
+import React, { useCallback, useEffect, useState } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
 
 import './style.css';
+import DotButton, { useDotButton } from './EmblaCarouselArrowDotButton';
+import PrevButton, { NextButton, usePrevNextButtons } from './EmblaCarouselArrowButtons';
 
 interface ImageCarouselProps {
   images: string[];
@@ -14,74 +13,83 @@ interface ImageCarouselProps {
 
 // eslint-disable-next-line max-len
 export default function ImageCarousel({ images, handleRemoveImage }: ImageCarouselProps) {
-  const responsive = {
-    // superLargeDesktop: {
-    //   // the naming can be any, depends on you.
-    //   breakpoint: { max: 4000, min: 3000 },
-    //   items: 5,
-    // },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 1,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 1,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
+  (0);
+
+  const [emblaRef, emblaApi] = useEmblaCarousel();
+
+  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
+
+  const { highlightedImageIndex, setHighlightedImageIndex } = useState(0);
+
+  const {
+    prevBtnDisabled,
+    nextBtnDisabled,
+    onPrevButtonClick,
+    onNextButtonClick,
+  } = usePrevNextButtons(emblaApi);
+
+  const handleRemoveButtonClick = (index: number) => {
+    if (handleRemoveImage) {
+      handleRemoveImage(index);
+    }
   };
+
+  const handleSelectHighlightImageButton = (index: number) => {
+    setHighlightedImageIndex(index);
+  };
+
   return (
+    <div className="carousel-wrapper">
+      <section className="embla">
+        <div className="embla__viewport" ref={emblaRef}>
+          <div className="embla__container">
+            {images.map((image, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+              <div className="embla__slide" key={index}>
+                <img src={image} alt="slide" />
+                {handleRemoveImage && (
+                  // eslint-disable-next-line react/button-has-type
+                  <button
+                    className="remove-button"
+                    onClick={() => handleRemoveButtonClick(index)}
+                  >
+                    Remove
+                  </button>
+                )}
+                <button
+                  className="select-highlight-image-button"
+                  onClick={() => handleSelectHighlightImageButton(index)}
+                >
+                  Highlight
+                </button>
 
-    <Box sx={{
-      width: '80%', marginBottom: '20px', height: '500px',
-    }}
-    >
-      <Carousel
-        responsive={responsive}
-        keyBoardControl
-        containerClass="carousel-container"
-        swipeable
-        draggable={false}
-        showDots
-        removeArrowOnDeviceType={['tablet', 'mobile']}
-          // deviceType={this.props.deviceType}
-        customTransition="all .5"
-        transitionDuration={500}
-        dotListClass="custom-dot-list-style"
-        itemClass="carousel-item-padding-40-px"
-      >
-        {images.map((img, idx) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <Box key={idx} sx={{ width: '100%' }}>
-            { handleRemoveImage && (
-              <IconButton
-                className="remove-button"
-                onClick={() => handleRemoveImage(idx)}
-                size="small"
-                color="secondary"
-                style={{
-                  position: 'absolute', top: 5, right: 5, zIndex: 999,
-                }}
-              >
-                <DeleteIcon />
-              </IconButton>
+              </div>
+            ))}
+          </div>
+        </div>
 
-            )}
+        <div className="embla__controls">
+          <div className="embla__buttons">
+            <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
+            <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+          </div>
 
-            <img
-              src={img}
-              alt="defe"
-              style={{
-                width: '100%', objectFit: 'contain', height: '100%',
-              }}
-            />
-          </Box>
-        ))}
-      </Carousel>
-    </Box>
+          <div className="embla__dots">
+            {scrollSnaps.map((_, index) => (
+              <DotButton
+              // eslint-disable-next-line react/no-array-index-key
+                key={index}
+                onClick={() => onDotButtonClick(index)}
+                className={'embla__dot'.concat(
+                  index === selectedIndex ? ' embla__dot--selected' : '',
+                )}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+
   );
 }
 

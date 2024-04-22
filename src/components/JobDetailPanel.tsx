@@ -27,8 +27,8 @@ function JobDetailPanel() {
   if (!job) return <Loader />;
 
   return (
-    <Box className="job-detail-page" sx={{ backgroundColor: 'white', paddingTop: 3, paddingLeft: '30px' }}>
-      <Box sx={{ paddingLeft: '30px' }}>
+    <Box className="job-detail-page" sx={{ backgroundColor: 'white', padding: '3%' }}>
+      <Box>
         <Typography variant="h4" align="left">
           {job.title}
         </Typography>

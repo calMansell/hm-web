@@ -1,4 +1,4 @@
-export { default as Navbar } from './Navbar';
+export { default as Navbar } from './Navbar/Navbar';
 export { default as About } from './About';
 export { default as ConversationsPage } from './ConversationPage/ConversationsPage';
 export { default as JobDetailPage } from './JobDetailPage/JobDetail';

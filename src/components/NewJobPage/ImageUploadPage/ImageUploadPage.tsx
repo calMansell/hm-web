@@ -80,10 +80,12 @@ function ImageUploadPage({ onBack }: { onBack: () => void }) {
   return (
     <div className="image-upload-container">
       <h2>Image Upload</h2>
-      <ImageCarousel
-        images={selectedImages.map((img) => img.preview)}
-        handleRemoveImage={handleRemoveImage}
-      />
+      <div className="carousel-container">
+        <ImageCarousel
+          images={selectedImages.map((img) => img.preview)}
+          handleRemoveImage={handleRemoveImage}
+        />
+      </div>
       <div className="upload-controls">
         {/* Hidden file input element */}
         <input

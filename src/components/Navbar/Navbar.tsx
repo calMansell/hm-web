@@ -1,11 +1,15 @@
 import React from 'react';
 import {
-  AppBar, Toolbar, Typography, IconButton,
+  AppBar, Toolbar, IconButton,
+  Typography,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
-import { logo } from '../assets/constants';
-import Searchbar from './Searchbar/Searchbar';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import { logo } from '../../assets/constants';
+import Searchbar from '../Searchbar/Searchbar';
+
+import './style.css';
 
 function Navbar() {
   return (
@@ -16,6 +20,10 @@ function Navbar() {
         </Link>
         <Searchbar />
         {/* Add other navigation links or components here */}
+        <Link to="/jobs/new" style={{ display: 'flex', alignItems: 'center' }}>
+          <AddCircleOutlineIcon fontSize="large" style={{ color: 'white' }} />
+          <Typography variant="subtitle1" className="new-job-text">Post new job</Typography>
+        </Link>
         <IconButton color="inherit" aria-label="menu">
           <MenuIcon />
         </IconButton>
