@@ -6,7 +6,7 @@
     .new-job-text {
       display: inline; /* Show the text on larger screens */
       color: white; /* Set text color to white */
-      margin-left: 0.5rem; /* Add some spacing */
+      padding-left: 0.5rem; /* Add some spacing */
       font-weight: bold; /* Set font weight to bold */
     }
   }
