@@ -1,7 +1,7 @@
 import React from 'react';
 import Review from './Review/Review';
 
-function UserReviewsPage() {
+function JobReviewCreatePage() {
   return (
     <>
       <Review />
@@ -10,4 +10,4 @@ function UserReviewsPage() {
   );
 }
 
-export default UserReviewsPage;
+export default JobReviewCreatePage;

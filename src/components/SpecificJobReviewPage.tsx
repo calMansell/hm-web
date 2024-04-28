@@ -1,7 +1,8 @@
 import React from 'react';
 import Review from './Review/Review';
 
-function UserReviewsPage() {
+function SpecificJobReviewPage() {
+  // TODO: fetch reviews from BE
   return (
     <>
       <Review />
@@ -10,4 +11,4 @@ function UserReviewsPage() {
   );
 }
 
-export default UserReviewsPage;
+export default SpecificJobReviewPage;

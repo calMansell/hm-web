@@ -1,9 +1,9 @@
 import React from 'react';
 
-function MyJobsPage() {
+function MyFavouritedJobsPage() {
   return (
     <div>MyJobsPage</div>
   );
 }
 
-export default MyJobsPage;
+export default MyFavouritedJobsPage;

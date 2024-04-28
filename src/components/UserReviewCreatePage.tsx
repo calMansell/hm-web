@@ -1,10 +1,10 @@
 import React from 'react';
 import Review from './Review/Review';
 
-function MyUserReviewsPage() {
+function UserReviewCreatePage() {
   return (
     <Review />
   );
 }
 
-export default MyUserReviewsPage;
+export default UserReviewCreatePage;

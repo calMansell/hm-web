@@ -1,8 +1,13 @@
 import React from 'react';
+import Review from './Review/Review';
 
 function JobReviewsPage() {
+  // TODO: fetch reviews from BE
   return (
-    <div>JobReviewsPage</div>
+    <>
+      <Review />
+      <Review />
+    </>
   );
 }
 
