@@ -18,7 +18,8 @@ export default function SkillChip({ skill, handleDeleteSkill }: SkillChipProps) 
         backgroundColor: '#e0e0e0', // Muted background color
         color: '#424242', // Dark gray text color
         fontWeight: 'bold', // Bold text
-        width: 150,
+        minWidth: '160px',
+        height: '32px',
         // '&:hover': {
         //   backgroundColor: '#388e3c', // Darker green on hover
         // },

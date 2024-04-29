@@ -9,7 +9,7 @@ function ConversationsPage() {
     <Box className="conversations-page">
       <ChatEngine
         height="100vh"
-        projectID="2df0a500-fb5f-4a8f-a8ce-c397c7b0bf25"
+        projectID="a839b12f-1eaf-4b11-8df7-ed7502cd59be"
         userName="Callam"
         userSecret="shearer99"
       />

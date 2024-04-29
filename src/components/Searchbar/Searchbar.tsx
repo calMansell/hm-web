@@ -32,7 +32,7 @@ function Searchbar() {
       <input
         placeholder="Search..."
         value={searchValue}
-        // onChange={(event, value) => setSearchValue(value)}
+        onChange={(event) => setSearchValue(event.target.value)}
         style={{ width: '100%' }}
         className="search-bar"
       />

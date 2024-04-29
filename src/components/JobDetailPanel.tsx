@@ -14,6 +14,7 @@ import jobs from '../assets/dummy/jobs.json';
 // import ImageCarousel from './ImageCarousel';
 import ImageCarousel from './ImageCarousel/ImageCarousel';
 import SkillChip from './SkillChip/SkillChip';
+import NewChat from './New Chat/NewChat';
 
 function JobDetailPanel() {
   const { id } = useParams();
@@ -47,16 +48,15 @@ function JobDetailPanel() {
       <Typography variant="body1" sx={{ padding: '30px 25px 25px 25px', lineHeight: 2 }}>{job.description}</Typography>
       <Divider />
       <Box sx={{ padding: '15px' }}>
-        <Button variant="contained" color="primary" startIcon={<SendIcon />}>
-          <Typography variant="body1" fontWeight="bold">Message</Typography>
-        </Button>
-      </Box>
-      <Divider />
-      <Box sx={{ padding: '15px' }}>
         <Typography variant="body2" fontWeight="bold">Skills Required:</Typography>
         {job.skillsRequiredForJob.map((skill) => (
           <SkillChip skill={skill.title} />
         ))}
+        <Divider />
+        <Box sx={{ padding: '15px' }}>
+
+          <NewChat />
+        </Box>
       </Box>
       <Divider />
       <Box sx={{ padding: '15px' }}>

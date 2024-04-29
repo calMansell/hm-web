@@ -1,5 +1,5 @@
 
-.review-component {
+.new-chat-component {
   height: 100%;
   width: 100%;
   background-color: rgb(255, 255, 255);
@@ -22,7 +22,7 @@
   align-items: center;
 }
 
-.profile-section-review {
+.profile-section-chat {
   display: flex;
   flex-direction: column;
   justify-content: center;

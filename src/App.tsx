@@ -21,6 +21,7 @@ import UserReviewsPage from './components/UserReviewsPage';
 import MyCreatedJobsPage from './components/MyCreatedJobsPage';
 import MyFavouritedJobsPage from './components/MyFavouritedJobsPage';
 import MyEngagedJobsPage from './components/MyEngagedJobsPage';
+import NewChat from './components/New Chat/NewChat';
 
 function App() {
   return (
@@ -52,7 +53,8 @@ function App() {
 
             <Route path="/my/jobs/created" element={<MyCreatedJobsPage />} />
             <Route path="/my/jobs/favourites" element={<MyFavouritedJobsPage />} />
-            <Route path="/my/jobs/engaged" element={<MyEngagedJobsPage />} />
+            {/* change back */}
+            <Route path="/my/jobs/engaged" element={<NewChat />} />
 
             <Route path="/user/:id/profile" element={<UserProfile />} />
 
