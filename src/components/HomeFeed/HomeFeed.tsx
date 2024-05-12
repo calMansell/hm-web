@@ -9,11 +9,9 @@ import './style.css';
 
 function HomeFeed() {
   return (
-
     <Box className="home-feed-page" p={2} sx={{ overflowY: 'auto' }}>
-      <JobItems jobs={jobs} direction="row" />
+      <JobItems jobs={jobs} />
     </Box>
-
   );
 }
 

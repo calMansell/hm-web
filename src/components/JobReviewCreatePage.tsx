@@ -3,10 +3,7 @@ import Review from './Review/Review';
 
 function JobReviewCreatePage() {
   return (
-    <>
-      <Review />
-      <Review />
-    </>
+    <Review />
   );
 }
 

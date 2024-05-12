@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
   TextField, Button, Grid, Typography,
 } from '@mui/material';
-import SkillInput from '../../SkillInput';
+import SkillInput from '../../SkillInput/SkillInput';
 import './style.css';
 
 interface Coords {
@@ -88,7 +88,7 @@ function NewJobForm({ onNext }: { onNext: () => void }) {
           <Typography variant="h6" align="left">
             Skills:
           </Typography>
-          <SkillInput />
+          <SkillInput isEditable />
         </Grid>
         <Grid item xs={12}>
           <Button

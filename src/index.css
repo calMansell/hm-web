@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #f3dddd; /* A light background color */
+  background-color: #010000; /* A light background color */
   background-image: url('./assets/images/more-leaves.png'); /* Replace with your texture image path */
   background-repeat: repeat;
 }

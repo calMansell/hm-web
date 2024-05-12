@@ -16,13 +16,4 @@
   }
 
 
-  /* Switch navigation to hamburger menu */
-  /* Example: If you have a navigation component with class .navigation */
-  .navigation {
-    display: none; /* Hide regular navigation */
-  }
-
-  .navigation-toggle {
-    display: block; /* Show hamburger menu icon */
-  }
 }

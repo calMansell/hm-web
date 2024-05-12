@@ -10,9 +10,13 @@ interface EditableTextFieldProps {
   initialValue: string;
   label?: string;
   multiline?: boolean;
+  isEditable: boolean;
+  onChange?: (value: string) => void;
 }
 
-function EditableTextField({ initialValue, label, multiline }: EditableTextFieldProps) {
+function EditableTextField({
+  initialValue, label, multiline, isEditable = false, onChange,
+}: EditableTextFieldProps) {
   const [value, setValue] = useState(initialValue);
   const [isEditing, setIsEditing] = useState(false);
   const [isFieldVisible, setIsFieldVisible] = useState(false);
@@ -30,51 +34,40 @@ function EditableTextField({ initialValue, label, multiline }: EditableTextField
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', margin: 5 }}>
-
-      {label
-      && (
-      <Typography variant="subtitle1" fontSize={21}>
-        {label}
-        :
-      </Typography>
-      )}
-      { isEditing ? (
+    <div style={{
+      display: 'flex', alignItems: 'center', margin: 5,
+    }}
+    >
+      <div style={{ display: 'flex', flexGrow: 1, padding: '5px' }}>
         <TextField
-          sx={{ marginLeft: 2 }}
+          label={label}
+          sx={{ fontSize: 21, minWidth: '350px' }}
           variant="outlined"
           value={value}
           onChange={handleChange}
           multiline={multiline}
           fullWidth={multiline}
+          onChangeCapture={() => onChange && onChange(value)}
+          rows={multiline ? 10 : 1}
         />
-      ) : (
-        <Typography
-          variant="body1"
-          sx={{ marginLeft: 1 }}
-          fontSize={21}
-        >
-          {' '}
-          {value}
-          {' '}
-        </Typography>
-      )}
-      <IconButton onClick={toggleEditing} sx={{ marginLeft: 2 }}>
-        <EditIcon sx={{ width: 'auto', height: '18px' }} />
-      </IconButton>
-      {isFieldVisible ? (
-        <Tooltip title="Hide from public (currently visible)">
-          <IconButton onClick={toggleFieldVisibility} size="small">
-            <VisibilityIcon sx={{ width: 'auto', height: '18px' }} />
-          </IconButton>
-        </Tooltip>
-      ) : (
-        <Tooltip title="Display to public (currently hidden)">
-          <IconButton onClick={toggleFieldVisibility}>
-            <VisibilityOffIcon sx={{ width: 'auto', height: '18px' }} />
-          </IconButton>
-        </Tooltip>
+      </div>
 
+      {isEditable && (
+      <div>
+        {isFieldVisible ? (
+          <Tooltip title="Hide from public (currently visible)">
+            <IconButton onClick={toggleFieldVisibility}>
+              <VisibilityIcon sx={{ width: 'auto', height: '18px', color: '#2aad30' }} />
+            </IconButton>
+          </Tooltip>
+        ) : (
+          <Tooltip title="Display to public (currently hidden)">
+            <IconButton onClick={toggleFieldVisibility}>
+              <VisibilityOffIcon sx={{ width: 'auto', height: '18px', color: '#B7322F' }} />
+            </IconButton>
+          </Tooltip>
+        )}
+      </div>
       )}
     </div>
   );

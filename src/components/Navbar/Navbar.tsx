@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import {
   AppBar, Toolbar, IconButton, Menu, MenuItem,
   Typography,
-  Avatar,
   Box,
-  Paper,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -37,9 +35,6 @@ function Navbar() {
           <Typography variant="subtitle1" className="new-job-text">Post new job</Typography>
         </Link>
         <Box>
-          {/* <IconButton onClick={handleMenuOpen} style={{ padding: '0px', border: '2px solid lightgray' }}>
-            <Avatar alt="User Avatar" src="https://ichef.bbci.co.uk/live-experience/cps/96/cpsprodpb/vivo/live/images/2016/5/8/70c74753-1784-4910-adf9-1b888dc27d1c.jpg" style={{ width: '50px', height: 'auto' }} imgProps={{ style: { objectFit: 'contain' } }} />
-          </IconButton> */}
           <IconButton
             color="inherit"
             aria-label="menu"
