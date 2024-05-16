@@ -1,25 +1,26 @@
 /* eslint-disable react/button-has-type */
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 
 import './style.css';
+import { Tooltip } from '@mui/material';
 import DotButton, { useDotButton } from './EmblaCarouselArrowDotButton';
 import PrevButton, { NextButton, usePrevNextButtons } from './EmblaCarouselArrowButtons';
 
 interface ImageCarouselProps {
   images: string[];
+  // eslint-disable-next-line react/require-default-props
+  allowHighlight?: boolean;
   handleRemoveImage?: (index: number) => void;
 }
 
 // eslint-disable-next-line max-len
-export default function ImageCarousel({ images, handleRemoveImage }: ImageCarouselProps) {
-  (0);
-
+export default function ImageCarousel({ images, allowHighlight = false, handleRemoveImage }: ImageCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel();
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
 
-  const { highlightedImageIndex, setHighlightedImageIndex } = useState(0);
+  const [highlightedImageIndex, setHighlightedImageIndex] = useState(-1);
 
   const {
     prevBtnDisabled,
@@ -31,11 +32,14 @@ export default function ImageCarousel({ images, handleRemoveImage }: ImageCarous
   const handleRemoveButtonClick = (index: number) => {
     if (handleRemoveImage) {
       handleRemoveImage(index);
+      if (highlightedImageIndex === index) {
+        setHighlightedImageIndex(-1);
+      }
     }
   };
 
   const handleSelectHighlightImageButton = (index: number) => {
-    setHighlightedImageIndex(index);
+    setHighlightedImageIndex(highlightedImageIndex === index ? -1 : index);
   };
 
   return (
@@ -45,7 +49,14 @@ export default function ImageCarousel({ images, handleRemoveImage }: ImageCarous
           <div className="embla__container">
             {images.map((image, index) => (
             // eslint-disable-next-line react/no-array-index-key
-              <div className="embla__slide" key={index}>
+              <div
+                className="embla__slide"
+                // eslint-disable-next-line react/no-array-index-key
+                key={index}
+                style={{
+                  border: highlightedImageIndex === index ? '6px solid yellow' : 'none', // Highlight with a border if this is the selected image
+                }}
+              >
                 <img src={image} alt="slide" />
                 {handleRemoveImage && (
                   // eslint-disable-next-line react/button-has-type
@@ -56,12 +67,17 @@ export default function ImageCarousel({ images, handleRemoveImage }: ImageCarous
                     Remove
                   </button>
                 )}
-                <button
-                  className="select-highlight-image-button"
-                  onClick={() => handleSelectHighlightImageButton(index)}
-                >
-                  Highlight
-                </button>
+                {allowHighlight && (
+                  <Tooltip title="Select first image to be displayed">
+                    <button
+                      className="select-highlight-image-button"
+                      onClick={() => handleSelectHighlightImageButton(index)}
+                      disabled={highlightedImageIndex === index}
+                    >
+                      Highlight
+                    </button>
+                  </Tooltip>
+                )}
 
               </div>
             ))}

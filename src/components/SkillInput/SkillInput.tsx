@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import SkillChip from '../SkillChip/SkillChip';
@@ -10,10 +10,12 @@ type PropType = {
   isEditable: boolean;
   // eslint-disable-next-line react/require-default-props
   skills?: string[];
+  // eslint-disable-next-line react/require-default-props
+  onSkillChange: (skills: string[]) => void;
 };
 
-export default function SkillInput({ isEditable, skills = [] }: PropType) {
-  const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
+export default function SkillInput({ isEditable, skills = [], onSkillChange }: PropType) {
+  const [selectedSkills, setSelectedSkills] = useState<string[]>([]); // WHY HERE??
   const [selectedSkills2, setSelectedSkills2] = useState<string[]>(skills);
   const [inputValue, setInputValue] = useState<string>('');
 
@@ -22,16 +24,21 @@ export default function SkillInput({ isEditable, skills = [] }: PropType) {
   const handleInputChange = (event: React.ChangeEvent<unknown>, newValue: string) => {
     setInputValue(newValue);
   };
-
   const handleAddSkill = (skill: string) => {
     if (!selectedSkills2.includes(skill)) {
-      setSelectedSkills2([skill, ...selectedSkills2]);
+      const newSkills = [skill, ...selectedSkills2];
+      setSelectedSkills2(newSkills);
+      onSkillChange(newSkills);
     }
     setInputValue('');
   };
 
   const handleDeleteSkill = (skillToDelete: string) => {
-    setSelectedSkills2((sklz) => sklz.filter((skill) => skill !== skillToDelete));
+    setSelectedSkills2((prevSkills) => {
+      const newSkills = prevSkills.filter((skill) => skill !== skillToDelete);
+      onSkillChange(newSkills); // Notify parent component of the change
+      return newSkills;
+    });
   };
 
   return (

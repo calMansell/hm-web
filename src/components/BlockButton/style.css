@@ -1,0 +1,7 @@
+.block-button:hover {
+    color: red;
+}
+
+.block-button {
+    color: grey;
+}

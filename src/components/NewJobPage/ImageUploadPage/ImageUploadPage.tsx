@@ -83,6 +83,7 @@ function ImageUploadPage({ onBack }: { onBack: () => void }) {
       <div className="carousel-container">
         <ImageCarousel
           images={selectedImages.map((img) => img.preview)}
+          allowHighlight
           handleRemoveImage={handleRemoveImage}
         />
       </div>

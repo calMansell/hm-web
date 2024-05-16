@@ -4,13 +4,16 @@ import {
   Tooltip,
 } from '@mui/material';
 import Edit from '@mui/icons-material/Edit';
-import CheckIcon from '@mui/icons-material/Check';
 
-import './style.css';
 import EditableTextField from '../EditableTextField';
 import SkillInput from '../SkillInput/SkillInput';
+import FavouriteButton from '../FavouriteButton/FavouriteButton';
+import ReportButton from '../ReportButton/ReportButton';
+import BlockButton from '../BlockButton/BlockButton';
 
-function UserProfile({ isEditable }: { isEditable: boolean }) {
+import './style.css';
+
+function UserProfile({ isEditable, isOwnProfile }: { isEditable: boolean, isOwnProfile: boolean }) {
   const [profilePic, setProfilePic] = useState('https://upload.wikimedia.org/wikipedia/en/c/c5/Bob_the_builder.jpg');
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [userInfo, setUserInfo] = useState({
@@ -53,15 +56,25 @@ function UserProfile({ isEditable }: { isEditable: boolean }) {
   };
 
   const handleSaveButtonClick = () => {
-    // Handle saving changes here
+    // TODO: Handle saving changes here
     setIsEdited(false);
   };
 
   return (
     <Box className="user-profile" sx={{ height: '85vh', margin: '20px' }}>
       {/* Section 1: Image, Headline, Location */}
+      { !isOwnProfile && (
+      <div className="buttons-container">
+        <FavouriteButton />
+        <ReportButton />
+        <BlockButton />
+      </div>
+      ) }
       <Paper className="profile-section section">
+
         <Box sx={{ position: 'relative', cursor: isEditable ? 'pointer' : 'default' }} onClick={isEditable ? handleClick : undefined}>
+          <input type="file" ref={fileInputRef} style={{ display: 'none' }} onChange={handleFileUpload} />
+
           <Avatar
             alt="User Avatar"
             src={profilePic}
@@ -81,7 +94,6 @@ function UserProfile({ isEditable }: { isEditable: boolean }) {
             </Box>
           )}
         </Box>
-        <input type="file" ref={fileInputRef} style={{ display: 'none' }} onChange={handleFileUpload} />
         <Typography variant="h5">{userInfo.name}</Typography>
         <Typography variant="subtitle1">Experienced Joiner</Typography>
         <Typography variant="subtitle1">{userInfo.location}</Typography>
@@ -115,11 +127,11 @@ function UserProfile({ isEditable }: { isEditable: boolean }) {
 
       {/* Section 4: Skills */}
       <Paper className="skills-section section">
-        <SkillInput isEditable={isEditable} />
-        {isEditable && isEdited && (
-          <Button variant="contained" onClick={handleSaveButtonClick} disabled={!isEdited}>
-            Submit
-          </Button>
+        <SkillInput isEditable={isEditable} onSkillChange={handleEditButtonClick} />
+        {isEditable && (
+        <Button variant="contained" onClick={handleSaveButtonClick} disabled={!isEdited}>
+          Submit
+        </Button>
         )}
       </Paper>
     </Box>

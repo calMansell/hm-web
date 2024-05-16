@@ -21,6 +21,10 @@
   padding-left: var(--slide-spacing);
 }
 
+ .select-highlight-image-button--disabled {
+   opacity: 0.5;
+   cursor: not-allowed;
+ }
 
 .embla__slide img {
   max-height: 30rem;

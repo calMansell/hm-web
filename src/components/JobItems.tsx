@@ -5,18 +5,28 @@ import { Job } from '../types/Job';
 import Loader from './Loader';
 
 function JobItems({ jobs }: { jobs: Job[] }) {
-  const isSmallScreen = useMediaQuery('(max-width: 768px)');
+  const isSmallScreen = useMediaQuery('(max-width: 768px)'); // TODO: don't do this
 
   if (!jobs?.length) return <Loader />;
 
   return (
-    <Stack direction={isSmallScreen ? 'column' : 'row'} flexWrap="wrap" justifyContent="start" gap={2}>
+    <Stack
+      direction="row"
+      flexWrap="wrap"
+      justifyContent="space-between"
+      alignItems="center"
+      gap={2}
+    >
       {jobs.map((job) => (
         <Box
           key={job.id}
           sx={{
             height: '50vh',
-            width: isSmallScreen ? '100%' : '45%', // Adjust width for smaller screens
+            width: {
+              xs: '100%', // 100% width for extra-small screens, one column
+              md: 'calc(50% - 16px)', // 50% width for medium screens, two columns, adjusting for gap
+              lg: 'calc(33.333% - 16px)', // ~33% width for medium screens, three columns, adjusting for gap
+            },
             overflow: 'hidden',
             textOverflow: 'ellipsis',
           }}

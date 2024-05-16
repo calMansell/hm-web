@@ -11,11 +11,12 @@ interface EditableTextFieldProps {
   label?: string;
   multiline?: boolean;
   isEditable: boolean;
+  label: string;
   onChange?: (value: string) => void;
 }
 
 function EditableTextField({
-  initialValue, label, multiline, isEditable = false, onChange,
+  initialValue, label = 'label: ', multiline, isEditable = false, onChange,
 }: EditableTextFieldProps) {
   const [value, setValue] = useState(initialValue);
   const [isEditing, setIsEditing] = useState(false);
@@ -38,7 +39,7 @@ function EditableTextField({
       display: 'flex', alignItems: 'center', margin: 5,
     }}
     >
-      <div style={{ display: 'flex', flexGrow: 1, padding: '5px' }}>
+      {isEditable ? (
         <TextField
           label={label}
           sx={{ fontSize: 21, minWidth: '350px' }}
@@ -47,10 +48,19 @@ function EditableTextField({
           onChange={handleChange}
           multiline={multiline}
           fullWidth={multiline}
-          onChangeCapture={() => onChange && onChange(value)}
           rows={multiline ? 10 : 1}
         />
-      </div>
+      ) : (
+        <div style={{ display: 'flex', alignItems: 'center', minWidth: '350px' }}>
+          <Typography sx={{ fontSize: 24, fontWeight: 'bold', marginRight: '8px' }}>
+            {label}
+            :
+          </Typography>
+          <Typography sx={{ fontSize: 24, whiteSpace: multiline ? 'pre-wrap' : 'normal' }}>
+            {value}
+          </Typography>
+        </div>
+      )}
 
       {isEditable && (
       <div>

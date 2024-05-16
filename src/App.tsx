@@ -9,17 +9,16 @@ import NewJobPage from './components/NewJobPage/NewJobPage';
 import SearchFeed from './components/SearchFeed';
 import JobReviewCreatePage from './components/JobReviewCreatePage';
 import JobReviewsPage from './components/JobReviewsPage';
-import MyUserReviewsPage from './components/MyUserReviewsGivenPage';
 
 import SpecificJobReviewPage from './components/SpecificJobReviewPage';
 import SpecificUserReviewPage from './components/SpecificUserReviewPage';
 import UserReviewCreatePage from './components/UserReviewCreatePage';
 import UserReviewsPage from './components/UserReviewsPage';
 
-import MyJobReviewsPage from './components/MyJobReviewsGivenPage';
 import NotFoundPage from './components/Error/not-found';
 import MyJobsPage from './components/MyJobsPage';
 import MyReviewsPage from './components/MyReviewsPage';
+import UserDetailPage from './components/UserDetailPage/UserDetailPage';
 
 function App() {
   return (
@@ -30,8 +29,9 @@ function App() {
           <Routes>
             <Route path="/" element={<HomeFeed />} />
             <Route path="/jobs/:id" element={<JobDetailPage />} />
+            <Route path="/users/:id" element={<UserDetailPage />} />
             <Route path="/my/messages" element={<ConversationsPage />} />
-            <Route path="/my/profile" element={<UserProfile isEditable />} />
+            <Route path="/my/profile" element={<UserProfile isEditable isOwnProfile />} />
             <Route path="/jobs/new" element={<NewJobPage />} />
             <Route path="/jobs/search" element={<SearchFeed />} />
 
@@ -42,7 +42,7 @@ function App() {
             <Route path="/user/:id/reviews" element={<UserReviewsPage />} />
 
             <Route path="/jobs/:id/reviews/:id" element={<SpecificJobReviewPage />} />
-            <Route path="/jobs/:id/reviews/:id" element={<SpecificUserReviewPage />} />
+            <Route path="/user/:id/reviews/:id" element={<SpecificUserReviewPage />} />
 
             <Route path="/jobs/:id/reviews/create" element={<JobReviewCreatePage />} />
             <Route path="/user/:id/reviews/create" element={<UserReviewCreatePage />} />

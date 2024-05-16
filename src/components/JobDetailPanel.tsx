@@ -1,9 +1,8 @@
+import React, { useEffect, useState } from 'react';
 import { CheckCircle } from '@mui/icons-material';
 import {
-  Box, Typography, Divider, Button,
+  Box, Typography, Divider,
 } from '@mui/material';
-import SendIcon from '@mui/icons-material/Send';
-import React, { useEffect, useState } from 'react';
 
 import { useParams, Link } from 'react-router-dom';
 
@@ -11,10 +10,11 @@ import { Job } from '../types/Job';
 import Loader from './Loader';
 
 import jobs from '../assets/dummy/jobs.json';
-// import ImageCarousel from './ImageCarousel';
 import ImageCarousel from './ImageCarousel/ImageCarousel';
 import SkillChip from './SkillChip/SkillChip';
 import NewChat from './New Chat/NewChat';
+import ReportButton from './ReportButton/ReportButton';
+import FavouriteButton from './FavouriteButton/FavouriteButton';
 
 function JobDetailPanel() {
   const { id } = useParams();
@@ -77,6 +77,8 @@ function JobDetailPanel() {
             <CheckCircle sx={{ fontSize: '12px', color: 'gray', ml: '5px' }} />
           </Typography>
         </Link>
+        <ReportButton />
+        <FavouriteButton />
       </Box>
     </Box>
   );
