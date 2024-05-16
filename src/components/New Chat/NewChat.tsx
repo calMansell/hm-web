@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField';
 
 import './style.css';
 import { useNavigate } from 'react-router-dom';
+import Minicard from '../Minicard/Minicard';
 
 export default function NewChat() {
   const [review, setReview] = React.useState<string>('');
@@ -45,20 +46,10 @@ export default function NewChat() {
       }}
       >
         {/* User icon */}
-        <Paper className="profile-section-chat">
-          <Box>
-            <Avatar alt="User Avatar" src="https://ichef.bbci.co.uk/live-experience/cps/96/cpsprodpb/vivo/live/images/2016/5/8/70c74753-1784-4910-adf9-1b888dc27d1c.jpg" imgProps={{ style: { objectFit: 'contain' } }} />
-          </Box>
-          <Typography variant="body1">Callam</Typography>
-        </Paper>
+        <Minicard imageUrl="https://ichef.bbci.co.uk/live-experience/cps/96/cpsprodpb/vivo/live/images/2016/5/8/70c74753-1784-4910-adf9-1b888dc27d1c.jpg" subject="BDB" />
 
         {/* Subject */}
-        <Paper className="profile-section-chat">
-          <Box>
-            <Avatar alt="User Avatar" src="https://ichef.bbci.co.uk/news/976/cpsprodpb/7525/production/_133198992_2786b37c-cb35-4dc9-b603-bba0286572f3.jpg.webp" imgProps={{ style: { objectFit: 'contain' } }} />
-          </Box>
-          <Typography variant="body1">Subject</Typography>
-        </Paper>
+        <Minicard imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZMCm5ObhLAF9zOdJKdMOxtTkGcsd_ER_4FGSk6cYl3w&s" subject="Chef" />
 
       </Box>
     </Box>

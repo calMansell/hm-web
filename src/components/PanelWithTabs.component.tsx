@@ -65,14 +65,22 @@ export default function PanelWithTabs({ tabs }: PanelWithTabsProps) {
         borderBottom: 1, borderColor: 'divider', position: 'sticky', top: 5, zIndex: 1, backgroundColor: '#fff',
       }}
       >
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" centered>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="basic tabs example"
+          variant="scrollable"
+          scrollButtons
+          allowScrollButtonsMobile
+          centered
+        >
           {tabs.map((tab, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <Tab label={tab.label} {...a11yProps(index)} key={index} />
           ))}
         </Tabs>
       </Box>
-      <Box sx={{ overflowY: 'scroll', height: '90vh' }}>
+      <Box sx={{ overflowY: 'scroll', overflowX: 'auto', height: '90vh' }}>
         {tabs.map((tab, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <CustomTabPanel value={value} index={index} key={index}>

@@ -15,6 +15,7 @@ import SkillChip from './SkillChip/SkillChip';
 import NewChat from './New Chat/NewChat';
 import ReportButton from './ReportButton/ReportButton';
 import FavouriteButton from './FavouriteButton/FavouriteButton';
+import Minicard from './Minicard/Minicard';
 
 function JobDetailPanel() {
   const { id } = useParams();
@@ -50,7 +51,7 @@ function JobDetailPanel() {
       <Box sx={{ padding: '15px' }}>
         <Typography variant="body2" fontWeight="bold">Skills Required:</Typography>
         {job.skillsRequiredForJob.map((skill) => (
-          <SkillChip skill={skill.title} />
+          <SkillChip skill={skill.title} isEditable={false} />
         ))}
         <Divider />
         <Box sx={{ padding: '15px' }}>
@@ -59,26 +60,31 @@ function JobDetailPanel() {
         </Box>
       </Box>
       <Divider />
-      <Box sx={{ padding: '15px' }}>
-        <Typography variant="body2">Posted: 2023-01-01</Typography>
-        <Typography variant="body2">
+      <Box sx={{
+        padding: '15px', display: 'flex', alignItems: 'flex-start', flexDirection: 'column',
+      }}
+      >
+        <Typography variant="body2" sx={{ color: 'text.secondary', marginBottom: '8px' }}>Posted By</Typography>
+        <Minicard imageUrl="https://i0.wp.com/thesefootballtimes.co/wp-content/uploads/2016/12/shearer.jpg?fit=1600%2C1050&ssl=1" subject="Shearer" />
+        <Typography variant="body2" sx={{ color: 'text.secondary', marginBottom: '8px' }}>Posted: 2023-01-01</Typography>
+        <Typography variant="body2" sx={{ color: 'text.secondary', marginBottom: '8px' }}>
           Job ID:
+          {' '}
           {job.id}
         </Typography>
-        <Typography variant="body2">
+        <Typography variant="body2" sx={{ color: 'text.secondary', marginBottom: '8px' }}>
           Views:
+          {' '}
           {job.views}
         </Typography>
-        <Link to={`/user/${job.poster}`}>
-          <Typography variant="body2" sx={{ sm: 'subtitle1', md: 'h6' }} color="#000">
-            Poster:
-            {' '}
-            {job.poster}
-            <CheckCircle sx={{ fontSize: '12px', color: 'gray', ml: '5px' }} />
-          </Typography>
-        </Link>
-        <ReportButton />
-        <FavouriteButton />
+        <Box sx={{
+          padding: '15px', display: 'flex', alignItems: 'flex-start', flexDirection: 'row',
+        }}
+        >
+          <ReportButton />
+          <FavouriteButton />
+
+        </Box>
       </Box>
     </Box>
   );

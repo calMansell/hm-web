@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import JobDetailPanel from '../JobDetailPanel';
+import JobDetailPanel from '../JobDetailPage';
 import './style.css';
 
 function JobDetailPage() {
